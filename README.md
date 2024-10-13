@@ -8,7 +8,7 @@ Acteurs du Projet
 2. Enseignants : Professeurs qui gèrent leurs cours, publient des ressources et évaluent les étudiants.
 3. Administrateurs : Personnel administratif responsable de la gestion des utilisateurs et des ressources académiques.
 4. Développeurs : Équipe technique en charge de la conception, du développement et de la maintenance de l'application.
-
+pp
  Besoins des Acteurs
 - Étudiants :
   - Accès facile aux informations sur les cours et les horaires.
