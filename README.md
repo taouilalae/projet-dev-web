@@ -1,5 +1,5 @@
 # projet-dev-web# 
-Projet de Gestion Universitaire
+Projet de Gestion Universitaire 
 
 Ce projet vise à développer une application de gestion universitaire qui facilite la gestion des cours, des étudiants et des enseignants. L'application permet une meilleure organisation des informations académiques et une communication fluide entre les différents acteurs de l'université.
 
@@ -30,4 +30,6 @@ Acteurs du Projet
   - Outils pour faciliter le débogage et le déploiement.
   - Accès à une communauté pour échanger des idées et des solutions.
 
- Lien : https://docs.google.com/spreadsheets/d/18sNULASiLUKscZr5gsgpqSWHzghNZzlUtNhVkwvG078/edit?resourcekey=&gid=893081634#gid=893081634
+  : https://docs.google.com/spreadsheets/d/18sNULASiLUKscZr5gsgpqSWHzghNZzlUtNhVkwvG078/edit?resourcekey=&gid=893081634#gid=893081634
+ [Lien](https://docs.google.com/spreadsheets/d/18sNULASiLUKscZr5gsgpqSWHzghNZzlUtNhVkwvG078/edit?resourcekey=&gid=893081634#gid=893081634) 
+
