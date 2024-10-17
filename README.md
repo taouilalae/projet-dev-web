@@ -29,7 +29,5 @@ Acteurs du Projet
   - Documentation claire pour le développement et la mise à jour de l'application.
   - Outils pour faciliter le débogage et le déploiement.
   - Accès à une communauté pour échanger des idées et des solutions.
-
-  : https://docs.google.com/spreadsheets/d/18sNULASiLUKscZr5gsgpqSWHzghNZzlUtNhVkwvG078/edit?resourcekey=&gid=893081634#gid=893081634
  [Lien](https://docs.google.com/spreadsheets/d/18sNULASiLUKscZr5gsgpqSWHzghNZzlUtNhVkwvG078/edit?resourcekey=&gid=893081634#gid=893081634) 
 
