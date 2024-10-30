@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>University Data Display</title>
+    <link rel="stylesheet" href="css/data.css" />
+    <style>
+        /* Styles déjà existants */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f9;
+        }
+        table {
+            width: 100%;
+            margin-bottom: 20px;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+            cursor: pointer;
+        }
+        a.questionnaire-link {
+            display: inline-block;
+            text-decoration: none;
+            color: white;
+            background-color: #007BFF;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        a.questionnaire-link:hover, a.questionnaire-link:focus {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .modal-content {
+            background-color: #ffffff;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            width: 90%;
+            max-width: 500px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 24px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        .close:hover,
+        .close:focus {
+            color: #333;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Système de Sécurité Domestique Intelligent</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Nom</th>
+                <th>Email</th>
+                <th>Expérience</th>
+                <th>Fonctionnalités préférées</th>
+                <th>Notifications préférées</th>
+                <th>Préférences de sécurité</th>
+                <th> notifications</th>
+                <th>plateforme utiliserié </th>
+                <th>alertes en cas de panne</th>
+            </tr>
+        </thead>
+        <tbody id="responses-table">
+            <!-- Data will be dynamically inserted here by JavaScript -->
+        </tbody>
+    </table>
+    <div style="display: flex; justify-content: flex-end; margin-bottom: 20px;">
+        <a href="https://docs.google.com/forms/d/1SqcmVNfgz4fFVevAfaRpk9K07TboUAd7sHTGZZnoG50/viewform" class="questionnaire-link" target="_blank">Accéder au formulaire</a>
+    </div>
+    
+    <div id="detailModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Détails de la Réponse</h2>
+            <div id="detailContent"></div>
+        </div>
+    </div>
+
+    <script>
+        const sheetID = '1tVp0iTbCHkg_U5uuCXix4u-XOWXb_DomnHd-xnwxKFo'; // ID de votre feuille
+        const apiKey = 'AIzaSyCJi4gVdQaVexgz2NxJ7xlOnp5JQ46r__k'; // Clé API valide
+    
+        async function fetchData() {
+            const range = encodeURIComponent('Form Responses 1'); // Vérifiez que le nom est correct
+            const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetID}/values/${range}?key=${apiKey}`;
+            
+            console.log('URL de la requête :', url); // Journaliser l'URL
+            
+            try {
+                let response = await fetch(url);
+                if (!response.ok) throw new Error(`Erreur HTTP! statut: ${response.status}`);
+                
+                let data = await response.json();
+                
+                // Vérifiez si la réponse contient des valeurs
+                if (!data.values || data.values.length === 0) {
+                    console.error('Aucune donnée trouvée dans la réponse de l\'API.');
+                    return;
+                }
+
+                displayData(data.values);
+            } catch (error) {
+                console.error('Erreur de récupération des données:', error);
+            }
+        }
+    
+        function displayData(data) {
+            if (!data || data.length === 0) {
+                console.error('Aucune donnée trouvée.');
+                return;
+            }
+    
+            const tableBody = document.getElementById('responses-table');
+            tableBody.innerHTML = '';
+    
+            data.slice(1).forEach(row => {
+                let tr = document.createElement('tr');
+                row.forEach(cell => {
+                    let td = document.createElement('td');
+                    td.textContent = cell;
+                    tr.appendChild(td);
+                });
+    
+                tr.addEventListener('click', () => showDetails(row));
+                tableBody.appendChild(tr);
+            });
+        }
+    
+        function showDetails(row) {
+            const labels = [
+                "Nom", "Email", "Expérience", 
+                "Fonctionnalités préférées", "Notifications préférées", 
+                "Préférences de sécurité"
+            ];
+    
+            const content = labels.map((label, i) => 
+                `<p><strong>${label}:</strong> ${row[i] || 'N/A'}</p>`
+            ).join('');
+    
+            document.getElementById('detailContent').innerHTML = content;
+            document.getElementById('detailModal').style.display = "block";
+        }
+    
+        document.querySelector('.close').onclick = () => {
+            document.getElementById('detailModal').style.display = "none";
+        };
+    
+        window.onclick = event => {
+            if (event.target == document.getElementById('detailModal')) {
+                document.getElementById('detailModal').style.display = "none";
+            }
+        };
+    
+        fetchData(); // Appel de la fonction pour récupérer les données
+    </script>
+    
+</body>
+</html>
