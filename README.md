@@ -7,7 +7,6 @@ Acteurs du Projet
 1. Étudiants : Utilisateurs finaux qui s'inscrivent aux cours, consultent leurs notes et interagissent avec leurs enseignants.
 2. Enseignants : Professeurs qui gèrent leurs cours, publient des ressources et évaluent les étudiants.
 3. Administrateurs : Personnel administratif responsable de la gestion des utilisateurs et des ressources académiques.
-4. Développeurs : Équipe technique en charge de la conception, du développement et de la maintenance de l'application.
 
  Besoins des Acteurs
 - Étudiants :
@@ -25,9 +24,5 @@ Acteurs du Projet
   - Outils pour générer des rapports académiques.
   - Accès à des statistiques sur l'utilisation de l'application.
 
-- Développeurs :
-  - Documentation claire pour le développement et la mise à jour de l'application.
-  - Outils pour faciliter le débogage et le déploiement.
-  - Accès à une communauté pour échanger des idées et des solutions.
- [Lien](https://docs.google.com/spreadsheets/d/18sNULASiLUKscZr5gsgpqSWHzghNZzlUtNhVkwvG078/edit?resourcekey=&gid=893081634#gid=893081634) 
-
+## Lien vers le fichier Google Sheets
+[Documentation détaillée du projet](https://docs.google.com/spreadsheets/d/18sNULASiLUKscZr5gsgpqSWHzghNZzlUtNhVkwvG078/edit?resourcekey=&gid=893081634#gid=893081634)
