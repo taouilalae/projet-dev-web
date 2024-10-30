@@ -25,4 +25,4 @@ Acteurs du Projet
   - Accès à des statistiques sur l'utilisation de l'application.
 
 ## Lien vers le fichier Google Sheets
-[Documentation détaillée du projet](https://docs.google.com/spreadsheets/d/18sNULASiLUKscZr5gsgpqSWHzghNZzlUtNhVkwvG078/edit?resourcekey=&gid=893081634#gid=893081634)
+[Documentation détaillée du projet]https://docs.google.com/forms/d/e/1FAIpQLSfbPRJhx1QPDuajJFQxq-PElusgzgDf2eLF6nrVC_XEesxs-g/viewform
