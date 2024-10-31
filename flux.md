@@ -50,58 +50,6 @@ sequenceDiagram
     Admin->>+SystemeGoogleSheets: Gérer Formulaire
     SystemeGoogleSheets-->>-Admin: Confirmation Gestion
 
-classDiagram
-    class Utilisateur {
-        +int id
-        +String nomUtilisateur
-        +String email
-        +String preferences
-    }
-
-    class Formulaire {
-        +saisirReponse()
-        +afficherResultats()
-    }
-
-    class Admin {
-        +gererFormulaires()
-        +visualiserDonnees()
-    }
-
-    class SystemeGoogleSheets {
-        +envoyerDonnees()
-        +recupererDonnees()
-        +afficherDonnees()
-    }
-
-    Utilisateur "1" --> "*" Formulaire : utilise
-    Formulaire "1" --> "1" SystemeGoogleSheets : enregistre
-    Admin "1" --> "*" SystemeGoogleSheets : gère
-
-    SystemeGoogleSheets <|-- Formulaire
-    SystemeGoogleSheets <|-- Admin
-
-
-sequenceDiagram
-
-    participant Utilisateur
-    participant Formulaire
-    participant SystemeGoogleSheets as Google Sheets
-    participant Admin
-
-    %% Interactions Utilisateur
-    Utilisateur->>+Formulaire: Saisir Réponse
-    Formulaire->>+SystemeGoogleSheets: Enregistrer Réponse
-    SystemeGoogleSheets-->>-Formulaire: Confirmation Enregistrement
-    Formulaire-->>-Utilisateur: Confirmation
-
-    %% Interactions Admin
-    Admin->>+SystemeGoogleSheets: Consulter Données
-    SystemeGoogleSheets-->>-Admin: Données des Réponses
-
-    Admin->>+SystemeGoogleSheets: Gérer Formulaire
-    SystemeGoogleSheets-->>-Admin: Confirmation Gestion
-
 # Diagrammes de Flux et de Séquence
 
 ## Diagramme de Classe
