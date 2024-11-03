@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sondage de l'app de Gestion Universitaire</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+    </style>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+</head>
+<body>
+    <h1>Résultats du Sondage de l'application de Gestion Universitaire</h1>
+
+    <table id="resultatsTable">
+        <thead>
+            <tr>
+                <th>Email</th>
+                <th>Horodateur</th>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Rôle à l'université</th>
+                <th>Fonctionnalités</th>
+                <th>Préférences de communication</th>
+                <th>Suivi des résultats académiques</th>
+                <th>Gestion des cours</th>
+                <th>Notifications automatiques examens</th>
+                <th>Communication avec les enseignants</th>
+                <th>Évaluer étudiants</th>
+                <th>Messagerie intégrée à l'application</th>
+                <th>Gestion des comptes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Les données seront insérées ici -->
+        </tbody>
+    </table>
+
+    <script>
+        // Lien vers le fichier CSV (doit être au format CSV)
+        const url = "https://docs.google.com/spreadsheets/d/18sNULASiLUKscZr5gsgpqSWHzghNZzlUtNhVkwvG078/gviz/tq?tqx=out:csv";
+
+        // Fonction pour récupérer le fichier CSV
+        async function fetchCSV() {
+            try {
+                const response = await fetch(url);
+                if (!response.ok) throw new Error('Erreur réseau : ' + response.statusText);
+                const csvText = await response.text();
+                console.log(csvText); // Afficher le contenu du CSV dans la console pour le débogage
+                const data = d3.csvParse(csvText);
+                processCSV(data);
+            } catch (error) {
+                console.error('Erreur lors de la récupération du fichier CSV:', error);
+            }
+        }
+
+        // Fonction pour traiter le fichier CSV
+        function processCSV(data) {
+            const tableBody = document.querySelector("#resultatsTable tbody");
+
+            if (data.length === 0) {
+                console.log("Aucune donnée trouvée dans le fichier CSV.");
+                return; // Sortir de la fonction si aucune donnée n'est trouvée
+            }
+
+            data.forEach(row => {
+                const rowElement = document.createElement("tr");
+                
+                // Créer les cellules de données
+                rowElement.innerHTML = `
+                    <td>${row["email"] || ''}</td>
+                    <td>${row["Horodateur"] || ''}</td>
+                    <td>${row["Nom"] || ''}</td>
+                    <td>${row["Prénom"] || ''}</td>
+                    <td>${row["Rôle à l'université"] || ''}</td>
+                    <td>${row["fonctionnalités"] || ''}</td>
+                    <td>${row["Préférences de communication"] || ''}</td>
+                    <td>${row["Suivi des résultats académiques"] || ''}</td>
+                    <td>${row["Gestion des cours"] || ''}</td>
+                    <td>${row["notifications automatiques examens"] || ''}</td>
+                    <td>${row["Communication avec les enseignants"] || ''}</td>
+                    <td>${row["évaluer étudiants"] || ''}</td>
+                    <td>${row["messagerie intégrée à l'application"] || ''}</td>
+                    <td>${row["gestion des comptes"] || ''}</td>
+                `;
+                tableBody.appendChild(rowElement);
+            });
+        }
+
+        // Appeler la fonction pour charger les données CSV
+        fetchCSV();
+    </script>
+</body>
+</html>
