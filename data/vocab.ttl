@@ -1,0 +1,97 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix o: <http://omeka.org/s/vocabs/o#> .
+@prefix ssd: <http://www.example.org/security#> .
+
+<http://www.example.org/security/vocab#> a owl:Ontology ;
+    dcterms:title "Vocabulaire pour le Système de Sécurité Domestique Intelligent" .
+
+# Classes
+ssd:Utilisateur a rdfs:Class ;
+    rdfs:label "Utilisateur" ;
+    rdfs:comment "Une personne fournissant des retours ou utilisant le système de sécurité" ;
+    vs:term_status "experimental" .
+
+ssd:SystemeSecurite a rdfs:Class ;
+    rdfs:label "Système de Sécurité" ;
+    rdfs:comment "Un système de sécurité domestique recensé par l'application" ;
+    vs:term_status "experimental" .
+
+ssd:RetourUtilisateur a rdfs:Class ;
+    rdfs:label "Retour d'Utilisateur" ;
+    rdfs:comment "Un retour ou une opinion fourni par un utilisateur concernant un système de sécurité" ;
+    vs:term_status "experimental" .
+
+# Propriétés liées à l'utilisateur
+ssd:nomComplet a rdf:Property ;
+    rdfs:label "Nom complet" ;
+    rdfs:comment "Nom complet de l'utilisateur" ;
+    rdfs:domain ssd:Utilisateur ;
+    vs:term_status "experimental" .
+
+ssd:adresseEmail a rdf:Property ;
+    rdfs:label "Adresse e-mail" ;
+    rdfs:comment "Adresse e-mail de l'utilisateur" ;
+    rdfs:domain ssd:Utilisateur ;
+    vs:term_status "experimental" .
+
+ssd:numeroTelephone a rdf:Property ;
+    rdfs:label "Numéro de téléphone" ;
+    rdfs:comment "Numéro de téléphone de l'utilisateur" ;
+    rdfs:domain ssd:Utilisateur ;
+    vs:term_status "experimental" .
+
+# Propriétés liées au système de sécurité
+ssd:nomSysteme a rdf:Property ;
+    rdfs:label "Nom du système" ;
+    rdfs:comment "Nom ou marque du système de sécurité" ;
+    rdfs:domain ssd:SystemeSecurite ;
+    vs:term_status "experimental" .
+
+ssd:typeSysteme a rdf:Property ;
+    rdfs:label "Type de système" ;
+    rdfs:comment "Type de système de sécurité (alarme, caméra, capteur, etc.)" ;
+    rdfs:domain ssd:SystemeSecurite ;
+    vs:term_status "experimental" .
+
+ssd:prix a rdf:Property ;
+    rdfs:label "Prix" ;
+    rdfs:comment "Coût approximatif du système de sécurité" ;
+    rdfs:domain ssd:SystemeSecurite ;
+    vs:term_status "experimental" .
+
+# Propriétés liées aux retours d'utilisateur
+ssd:avis a rdf:Property ;
+    rdfs:label "Avis" ;
+    rdfs:comment "Opinion ou commentaire de l'utilisateur sur un système de sécurité" ;
+    rdfs:domain ssd:RetourUtilisateur ;
+    vs:term_status "experimental" .
+
+ssd:note a rdf:Property ;
+    rdfs:label "Note" ;
+    rdfs:comment "Note attribuée par l'utilisateur au système de sécurité (ex : sur 5)" ;
+    rdfs:domain ssd:RetourUtilisateur ;
+    vs:term_status "experimental" .
+
+ssd:dateRetour a rdf:Property ;
+    rdfs:label "Date du retour" ;
+    rdfs:comment "Date à laquelle l'utilisateur a fourni son avis" ;
+    rdfs:domain ssd:RetourUtilisateur ;
+    vs:term_status "experimental" .
+
+ssd:utilisateurAssocie a rdf:Property ;
+    rdfs:label "Utilisateur associé" ;
+    rdfs:comment "Lien vers l'utilisateur ayant fourni ce retour" ;
+    rdfs:domain ssd:RetourUtilisateur ;
+    rdfs:range ssd:Utilisateur ;
+    vs:term_status "experimental" .
+
+ssd:systemeAssocie a rdf:Property ;
+    rdfs:label "Système associé" ;
+    rdfs:comment "Lien vers le système de sécurité concerné par ce retour" ;
+    rdfs:domain ssd:RetourUtilisateur ;
+    rdfs:range ssd:SystemeSecurite ;
+    vs:term_status "experimental" .

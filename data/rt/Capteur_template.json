@@ -1,0 +1,53 @@
+{
+    "o:label": "Capteur",
+    "o:resource_template_property": [
+        {
+            "o:alternate_label": null,
+            "o:alternate_comment": null,
+            "o:is_required": true,
+            "o:is_private": false,
+            "o:default_lang": null,
+            "data_types": [],
+            "vocabulary_namespace_uri": "http://www.example.org/vocab#",
+            "vocabulary_label": "Vocabulaire de Sécurité Domestique",
+            "local_name": "typeCapteur",
+            "label": "Type de Capteur"
+        },
+        {
+            "o:alternate_label": null,
+            "o:alternate_comment": null,
+            "o:is_required": true,
+            "o:is_private": false,
+            "o:default_lang": null,
+            "data_types": [],
+            "vocabulary_namespace_uri": "http://www.example.org/vocab#",
+            "vocabulary_label": "Vocabulaire de Sécurité Domestique",
+            "local_name": "statusCapteur",
+            "label": "Statut du Capteur"
+        },
+        {
+            "o:alternate_label": null,
+            "o:alternate_comment": null,
+            "o:is_required": true,
+            "o:is_private": false,
+            "o:default_lang": null,
+            "data_types": [],
+            "vocabulary_namespace_uri": "http://www.example.org/vocab#",
+            "vocabulary_label": "Vocabulaire de Sécurité Domestique",
+            "local_name": "sensibilite",
+            "label": "Sensibilité du Capteur"
+        }
+    ],
+    "o:resource_class": {
+        "vocabulary_namespace_uri": "http://www.example.org/vocab#",
+        "vocabulary_label": "Vocabulaire de Sécurité Domestique",
+        "local_name": "Capteur",
+        "label": "Capteur de Sécurité"
+    },
+    "o:title_property": {
+        "vocabulary_namespace_uri": "http://www.example.org/vocab#",
+        "vocabulary_label": "Vocabulaire de Sécurité Domestique",
+        "local_name": "typeCapteur",
+        "label": "Type de Capteur"
+    }
+}
